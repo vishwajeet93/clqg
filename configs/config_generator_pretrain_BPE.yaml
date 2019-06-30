@@ -1,0 +1,71 @@
+---
+src_vocab: 
+dst_vocab: 
+src_gen: 
+dst_gen: 
+src_vocab_size_a: 39799
+dst_vocab_size_a: 39799
+src_vocab_size_b: 17278 
+dst_vocab_size_b: 17278
+src_vocab_size: 0
+dst_vocab_size: 0
+hidden_units: 300
+scale_embedding: True
+attention_dropout_rate: 0.0
+residual_dropout_rate: 0.2
+num_blocks: 6
+num_heads: 6
+binding_embedding: False
+kl_weight: 0.00002
+enc_layer_indep: 4
+enc_layer_share: 1
+dec_layer_indep: 4
+dec_layer_share: 1
+generate_maxlen: 50
+lock_enc_embed: False
+vari_emb_scale: 0.0
+multi_channel_encoder: True
+
+train:
+    devices: '2'
+    src_path: 
+    dst_path: 
+    src_path_1: 
+    dst_path_1:   
+    tokens_per_batch:  5000
+    max_length: 80
+    num_epochs: 15
+    logdir: 'out/48'
+    save_freq: 500
+    summary_freq: 100
+    disp_freq: 100
+    grads_clip: 5
+    optimizer: 'adam_decay'
+    learning_rate: 0.00001
+    gan_learning_rate: 0.00001
+    learning_rate_warmup_steps: 10000
+    warm_steps: 1000
+    label_smoothing: 0.1
+    batch_size: 64
+    shared_embedding: False
+    shuffle_k: 5
+    src_pretrain_wordemb_path: 
+    dst_pretrain_wordemb_path: 
+    restore_partial: False
+    src_more: True
+    restore_embed: True
+    restore_decoder: False
+    restore_decode_embed: True
+    decoder_logdir: 'out/22'
+
+test:
+    mode: 'ab'
+    src_path: 
+    dst_path: 
+    ori_dst_path:   
+    output_path: 
+    batch_size: 32
+    max_target_length: 200
+    beam_size: 4
+    lp_alpha: 0.6
+    devices: '2'
